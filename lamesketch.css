@@ -23,7 +23,7 @@ h1 {
 	position: absolute;
 	top:0;left:0;right:0;
 	font-family: "Purisa", "Ubuntu";
-	font-size: 2.7em;
+	font-size: 2.9em;
 	line-height: 1em;
 	text-align: center;
 	color:white;
@@ -42,8 +42,9 @@ h1:hover {
 	position: relative;
 	width:48em;
 	height:48em;
-	margin:6em auto;
+	margin:8em auto 5em auto;
 	line-height:0;
+	border:0.05em solid #ddd;
 }
 
 
@@ -51,11 +52,12 @@ h1:hover {
 
 #blockOfSettings{
 	position:absolute;
-	top:-3.9em;
-	left:0;
-	right:0;
+	top:-4em;
+	left:-0.025em;
+	right:-0.025em;
 	background-color: #EFCC2C;
 	border-radius:40px 40px 0 0;
+
 }
 
 #gridSettings {
@@ -91,6 +93,7 @@ button{
 /* Sketch area */
 
 .sketchDivs {
-	background-color: black;
 	display:inline-block;
+	background-color: #000;
+	opacity:0;
 }
