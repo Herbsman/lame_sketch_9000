@@ -1,6 +1,6 @@
 //Appends the divs as soon as the document is loaded (ready)
 $(document).ready(function(){
-	var	divNum = 16;
+	var	divNum = 60;
 	var grid = Math.pow(divNum, 2);		//given number = number of rows and collumns to conjure up.
 	var $contHeight = $("#contentWrapper").height();	//grabs the wrapper's height (the bare value, no units) + stores it
 	var $contWidth = $("#contentWrapper").width();		//same as above, but for width
@@ -14,6 +14,7 @@ $(document).ready(function(){
 	$(".sketchDivs").hover(function(){
 		$(this).css("opacity", "-=0.2");
 	});
+	$(document).on("click", "")
 });
 
 

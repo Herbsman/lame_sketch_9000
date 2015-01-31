@@ -5,34 +5,92 @@ body {
 	margin:0;
 }
 
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+
+/* Header */
+
 #header {
-	position: absolute;
+	position: relative;
 	background-color:#909;
-	height:5em;
-	top:0;
-	left:0;
-	right:0;
-	margin-bottom:20em;
+	height:6.3em;
 }
 
 h1 {
+	position: absolute;
+	top:0;left:0;right:0;
+	font-family: "Purisa", "Ubuntu";
+	font-size: 2.7em;
+	line-height: 1em;
 	text-align: center;
 	color:white;
-	font-family: "Purisa", "Ubuntu";
-	font-size: 2.4em;
-	line-height: 1em;
+	transition: color, 0.01s;
 }
+
+h1:hover {
+	color:yellow;
+	cursor:pointer;
+}
+
+
+/* Body and Co. */
 
 #contentWrapper {
 	position: relative;
-	background-color:#eee;
 	width:48em;
 	height:48em;
-	margin:15em auto 5em auto;
+	margin:6em auto;
 	line-height:0;
 }
 
-#contentWrapper > div {
+
+/* The settings bar */
+
+#blockOfSettings{
+	position:absolute;
+	top:-3.9em;
+	left:0;
+	right:0;
+	background-color: #EFCC2C;
+	border-radius:40px 40px 0 0;
+}
+
+#gridSettings {
+	display: block;
+	height:1em;
+	text-align: center;
+}
+
+#blockOfButtons {
+	position: relative;
+	margin:0 auto;
+}
+
+
+ul {
+	list-style-type: none;
+	margin:0 25%;
+}
+
+li {
+	float:left;
+	display: inline-block;
+	margin:0 0.2em;
+	padding: 0.3em 0;
+}
+
+button{
+	background: #dedede;
+ 	border: 0.1em solid gray;
+ 	border-radius:0.8em;
+}
+
+/* Sketch area */
+
+.sketchDivs {
 	background-color: black;
 	display:inline-block;
 }
