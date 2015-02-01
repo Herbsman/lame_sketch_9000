@@ -41,3 +41,5 @@ Notes:
 ##Most likely I understand far too little of how Javascript and Jquery + UI work and am simply blind to the solution. Oh, well. Some other day.
 
 ##While working out bugs, found out that the Trail mode and Random mode make for a happy accidental mix :)
+
+##Checked out other people's assignments. Liked this one the most. It's smooth, found no bug, looks good and has good functionality! (http://rawgit.com/vdubmastertech/etch-a-sketch/master/index.html)
