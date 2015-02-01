@@ -3,6 +3,7 @@
 
 body {
 	margin:0;
+	background-color: white;
 }
 
 a {
@@ -103,6 +104,15 @@ button{
 
 .sketchDivs {
 	display:inline-block;
-	background-color: #000;
 	opacity:0;
+}
+
+
+article {
+	width:40em;
+	margin:0 auto;
+}
+
+article ul li {
+	list-style-type: disc;
 }
