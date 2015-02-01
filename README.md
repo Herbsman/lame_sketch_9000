@@ -30,6 +30,8 @@ In the future would be ideal if I could:
 	+spits out the image in a .jpg or .png format.
 - Remove some redundant checking and grid-wiping.
 
+In reality, I doubt I'll work on it much longer, but it was fun.
+
 ******************
 
 

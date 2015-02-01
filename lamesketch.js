@@ -64,7 +64,8 @@ function init(divNum){
 //this one sets up the grid
 function gridSetup(){
 
-sktchDivs = ".sketchDivs"; 	// I define this out of the loop, so the stored element isn't looked up each time (faster execution).
+sktchDivs = ".sketchDivs"; 	// I define this out of the loop, so the stored
+							// element isn't looked up on each iteration (faster execution).
 
 for(i = 0; i < grid; i++){
 		$("#contentWrapper").append("<div class='sketchDivs'></div>");
@@ -88,7 +89,7 @@ function gridWipe(){
 }
 
 
-//mode functions
+//Mode functions
 
 function defaultMode(){		//the default mode
 	$(sktchDivs).hover(function(){
@@ -99,12 +100,11 @@ function defaultMode(){		//the default mode
 function randomColor(){		//random colors mode
 	function randomizer(){  	//returns a number between 0 and 255 (for rgb values)
 		rndm = Math.floor(Math.random() * 255);
-		rndmA = Math.random()+0.3; // ensures the number the alpha will be at least 0.3
 		return rndm;
 	}
 	$(sktchDivs).css("opacity", "1");
-	$(sktchDivs).hover(function(){	// color is RGBa (Red, Green, Blue, alpha)
-		randomColorRgb = "rgb("+randomizer()+","+randomizer()+","+randomizer()+")"; //Applies the randomizer to each of the RGB values
+	$(sktchDivs).hover(function(){	// color is RGB
+		randomColorRgb = "rgb("+randomizer()+","+randomizer()+","+randomizer()+")"; //Applies the randomizer to each RGB value
 		$(this).css("background-color", randomColorRgb);
 	});
 }
@@ -122,7 +122,6 @@ function trailMode(){		//trail mode. Completely reset grid to use.
 		$(this).css("background-color", "black");
 	},function(){
 		$(this).animate({"background-color":"transparent"},500);
-		//$(this).hide("explode", {"pieces":"9"}, 300); too tasking for my stone-age computer
 	});
 }
 

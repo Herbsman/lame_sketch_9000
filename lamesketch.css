@@ -106,13 +106,3 @@ button{
 .sketchDivs {
 	display:inline-block;
 }
-
-
-article {
-	width:40em;
-	margin:0 auto;
-}
-
-article ul li {
-	list-style-type: disc;
-}
