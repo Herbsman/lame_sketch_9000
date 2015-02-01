@@ -3,7 +3,7 @@
 function init(divNum){
 	$(document).ready(function(){
 		if(divNum === undefined || divNum === null){  //sets the grid dimensions to the default if the variable is empty.
-			divNum = 10; //the
+			divNum = 27; //the
 		}
 
 		//Variables 
@@ -11,35 +11,51 @@ function init(divNum){
 		divHeight = $("#contentWrapper").height() / divNum;		//divides the wrapper's height by # of divs - this will be the div height.
 		divWidth = $("#contentWrapper").width() / divNum;			//same as above, but for width
 
-		//functions
-
+		//Initial grid setup and default mode initialized
 		gridSetup();
-
-		$("p").html("Select a mode!")
-
+		defaultMode();
 
 
-		//different modes
+		//Modes
 		$(document).on("click", "#defMode", function(){  //random color mode engaged when proper button is clicked
 			defaultMode();
-			$("p").html("Get drawing!");
+			$("p").html("Default mode engaged. Can you draw a duck?");
 		});
 
 		$(document).on("click", "#rndmColor", function(){  //random color mode engaged when proper button is clicked
 			randomColor();
-			$("p").html("Get drawing!");
+			$("p").html("Random color mode engaged. What's your favorite thing?");
 		});
 
-		//button actions
+		$(document).on("click", "#opacityMode", function(){	//To avoid bugs across modes, this function requires the
+															//user to completely reset the grid before using this mode
+			con = confirm("Grid has to reset to use this mode. Continue?")
+			if (con == true){
+				console.log("condition passed, code should be executing");
+				gridNew();
+				opacityMode();
+			}	
+		});
+
+		$(document).on("click", "#trailMode", function(){
+			con = confirm("Grid has to reset to use this mode. Continue?");
+
+			if(con == true){
+				gridNew();
+				trailMode();
+			}
+		});
+
+		//Grid actions
 
 		$(document).on("click", "#buttonRedo", function(){
 			gridNew();
-			$("p").html("Select a mode!")
+			$("p").html("Grid was rebuilt. Pick a mode and start drawing.")
 		});
 
 		$(document).on("click", "#buttonWipe", function(){
 			gridWipe();
-			$("p").html("Select a mode!")
+			$("p").html("Grid was wiped. You may draw on.")
 		});
 
 	});
@@ -65,26 +81,22 @@ function gridNew(){
 	init(gridDim);
 }
 
-//Wipes grid, restores initial div class opacity.
-
+//Wipes grid, restores the div's background to transparent.
 function gridWipe(){
-	$(".sketchDivs").css("opacity", "0");	//Should make this work across the different modes that I plan to implement.
+	//Should make this work across the different modes that I plan to implement.
 	$(".sketchDivs").css("background-color", "transparent");
-}							//Right now, it just works for the default mode.
+}
 
 
 //mode functions
 
 function defaultMode(){		//the default mode
-	$(sktchDivs).css("opacity", "0");
 	$(sktchDivs).hover(function(){
-		$(this).css("opacity", "+=0.2");
 		$(this).css("background-color", "black");
 	});
 }
 
 function randomColor(){		//random colors mode
-	gridWipe();
 	function randomizer(){  	//returns a number between 0 and 255 (for rgb values)
 		rndm = Math.floor(Math.random() * 255);
 		rndmA = Math.random()+0.3; // ensures the number the alpha will be at least 0.3
@@ -92,10 +104,26 @@ function randomColor(){		//random colors mode
 	}
 	$(sktchDivs).css("opacity", "1");
 	$(sktchDivs).hover(function(){	// color is RGBa (Red, Green, Blue, alpha)
-		randomColorRgb = "rgb("+randomizer()+","+randomizer()+","+randomizer()+","+rndmA+")"; //Applies the randomizer to each of the RGB values
+		randomColorRgb = "rgb("+randomizer()+","+randomizer()+","+randomizer()+")"; //Applies the randomizer to each of the RGB values
 		$(this).css("background-color", randomColorRgb);
 	});
 }
 
+function opacityMode(){		//opacity mode. Have to completely reset the grid to use this mode.
+	$(sktchDivs).css("opacity", "0");
+	$(sktchDivs).hover(function(){
+		$(this).css("opacity", "+=0.2");
+		$(this).css("background-color", "black");
+	});
+}
+
+function trailMode(){		//trail mode. Completely reset grid to use.
+	$(sktchDivs).hover(function(){
+		$(this).css("background-color", "black");
+	},function(){
+		$(this).animate({"background-color":"transparent"},500);
+		//$(this).hide("explode", {"pieces":"9"}, 300); too tasking for my stone-age computer
+	});
+}
 
 init();
